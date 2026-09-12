@@ -1,5 +1,5 @@
 Editor:
-- CTRL + Q to quit
+- Press escape to quit
 - File provided via first argument
 - Characters inserted after cursor and file getting updated live
 - Cursor a thin line between two letters.
