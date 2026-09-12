@@ -30,7 +30,6 @@ void enable_raw_mode() {
     if (tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw) == -1) {
         exit(1);
     }
-	atexit(disable_raw_mode);
 	return;
 }
 
@@ -74,17 +73,19 @@ int read_byte_timeout(int ms) {
 }
 
 enum {
-	KEY_ESC = 0x100,
+	KEY_ESC = 0x100, // Special keys will live above 0xff
 	KEY_UP,
 	KEY_DOWN,
 	KEY_LEFT,
 	KEY_RIGHT,
-	KEY_OTHER 
+	KEY_BACKSPACE,
+	KEY_OTHER
 };
 
 int read_key() {
 	int c = read_byte();
 
+	if (c == 0x7f || c == 0x08) return KEY_BACKSPACE;
 	if (c == -1) return KEY_OTHER;
 	if (c != 0x1b) return c;
 	
