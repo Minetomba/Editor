@@ -83,6 +83,7 @@ enum {
 	KEY_LEFT,
 	KEY_RIGHT,
 	KEY_BACKSPACE,
+	KEY_ENTER,
 	KEY_OTHER
 };
 
@@ -90,6 +91,7 @@ int read_key() {
 	int c = read_byte();
 
 	if (c == 0x7f || c == 0x08) return KEY_BACKSPACE;
+	if (c == 0x0d || c == 0x0a) return KEY_ENTER;
 	if (c == -1) return KEY_OTHER;
 	if (c != 0x1b) return c;
 	

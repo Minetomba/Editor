@@ -2,11 +2,12 @@ Editor feature checklist:
 | YES - Press CTRL + C to quit
 | YES - File provided via first argument
 | YES - Characters inserted after cursor and file getting updated live
-| NO - Cursor a thin line between two letters (An ASCII pipe).
-| NO - Backspace to delete the character before the cursor and file getting updated live
-| NO - Enter to insert a newline character
-| NO - Tab to insert a tab character
-| NO - Rendering done on file change
+| YES - Cursor a thin line between two letters (An ASCII pipe).
+| YES - Backspace to delete the character before the cursor and file getting updated live
+| YES - Enter to insert a newline character
+| YES - Tab to insert a tab character
+| YES - Rendering done on file change with proper handling for files too large for the terminal's rows and columns
+| YES - Cursor movement with arrow keys
 
 Version standard: vA.B.C, where A starts out as 0 for the non-functional stage, and increments as releases that break backwards compatibility are added (exception: When going from 0 to 1, it is influenced by whether the program is functional rather than a change breaking backwards compatibility). B starts out as 0 no matter what, and gets incremented as any feature that does not break backwards compatibility is added. C starts out as 0 no matter what, and gets incremented as any change in features is added (examples: bug fixes, other patches. Also, yes, improvement of existing features is counted as a B-class change, not C-class). Along with the version, a commit should also include what changed verbosely.
 
