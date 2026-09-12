@@ -21,6 +21,7 @@ static int compute_offset(FILE *src, int row, int col, long *out_offset) {
 
 		if (c == '\n') current_row++;
 	}
+
 	while (col > 0) {
 		c = fgetc(src);
 
@@ -34,10 +35,12 @@ static int compute_offset(FILE *src, int row, int col, long *out_offset) {
 
 		col--;
 	}
+
 	*out_offset = offset;
 
 	return 0;
 }
+
 static int copy_bytes(FILE *in, FILE *out, long n) {
 	unsigned char buf[CHUNK];
 
@@ -50,8 +53,10 @@ static int copy_bytes(FILE *in, FILE *out, long n) {
 
 		n -= (long)got;
 	}
+
 	return 0;
 }
+
 int insert_byte_at(const char *path, const int pos[2], unsigned char byte) {
 	FILE *src = NULL;
 	FILE *tmp = NULL;
@@ -86,21 +91,27 @@ int insert_byte_at(const char *path, const int pos[2], unsigned char byte) {
 	remaining = size - offset;
 
 	if (copy_bytes(src, tmp, remaining) != 0) goto cleanup;
+
 	if (fclose(tmp) != 0) {
 		tmp = NULL;
 		goto cleanup;
 	}
+
 	tmp = NULL;
+
 	if (fclose(src) != 0) {
 		src = NULL;
 		goto cleanup;
 	}
+
 	src = NULL;
+
 	if (rename(tmp_path, path) != 0) {
 		remove(path);
 	
 		if (rename(tmp_path, path) != 0) goto cleanup;
 	}
+
 	rc = 0;
 
 cleanup:

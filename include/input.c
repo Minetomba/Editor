@@ -13,6 +13,7 @@ void disable_raw_mode() {
 	
 	return;
 }
+
 void enable_raw_mode() {
 	struct termios raw;
 
@@ -33,6 +34,7 @@ void enable_raw_mode() {
 
 	return;
 }
+
 int read_byte() {
 	unsigned char c;
 	
@@ -47,6 +49,7 @@ int read_byte() {
 		return -1;
 	}
 }
+
 int wait_for_input(int ms) {
 	fd_set fds;
 	struct timeval tv;
@@ -64,12 +67,15 @@ int wait_for_input(int ms) {
 	
 		return 0;
 	}
+
 	return r > 0;
 }
+
 int read_byte_timeout(int ms) {
 	if (!wait_for_input(ms)) return -1;
 	return read_byte();
 }
+
 enum {
 	KEY_ESC = 0x100, /* Special keys will live above 0xff */
 	KEY_UP,
@@ -79,6 +85,7 @@ enum {
 	KEY_BACKSPACE,
 	KEY_OTHER
 };
+
 int read_key() {
 	int c = read_byte();
 
@@ -94,6 +101,7 @@ int read_key() {
 	c = read_byte_timeout(50);
 
 	if (c == -1) return KEY_OTHER;
+
 	switch (c) {
 		case 'A': return KEY_UP;
 		case 'B': return KEY_DOWN;
@@ -102,4 +110,5 @@ int read_key() {
 
 		default: return KEY_OTHER;
 	}
+
 }
