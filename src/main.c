@@ -1,3 +1,5 @@
+// compile.sh - Copyright (c) 2026 Minetomba minetomba@proton.me
+// SPDX-License-Identifier: GPL-3.0-only
 #include "../include/input.c"
 #include "../include/files.c"
 #include "../include/renderer.c"

@@ -1,3 +1,5 @@
+// compile.sh - Copyright (c) 2026 Minetomba minetomba@proton.me
+// SPDX-License-Identifier: GPL-3.0-only
 #define _POSIX_C_SOURCE 200809L
 
 #include <termios.h>
