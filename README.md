@@ -1,3 +1,6 @@
+## Teddy Editor
+A modeless text editor I wrote in C89 that I may add new features as I start using it more and more. It was named "Teddy" because the first 3 letters stand for "**T**ext **Ed**itor".
+
 ## Feature checklist
 - YES - Press CTRL + C to quit
 - YES - File provided via first argument
