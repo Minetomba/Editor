@@ -1,5 +1,5 @@
-// compile.sh - Copyright (c) 2026 Minetomba minetomba@proton.me
-// SPDX-License-Identifier: GPL-3.0-only
+/* compile.sh - Copyright (c) 2026 Minetomba minetomba@proton.me */
+/* SPDX-License-Identifier: GPL-3.0-only */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
